@@ -30,7 +30,7 @@ console.log(process.env.DATABASEURL);
 setTimeout(function() {}, 10);
 
 
-mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASEURL);
 
 
 // https://www.npmjs.com/package/body-parser
