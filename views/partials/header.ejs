@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Jungle</title>
+      <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link rel="stylesheet" href="/stylesheets/main.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <a class="navbar-brand" href="/">projectAlpha</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+              <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link" href="/posts">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/about">Stack</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" a target='_blank' rel='noopener noreferrer' href="https://github.com/laplopo">GitHub <i class="fab fa-github"></i></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="mailto:attila.k.kovacs@gmail.com">Contact <i class="far fa-envelope"></i></a>
+                  </li>
+                  
+                </ul>
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                  <% if (!currentUser) { %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/register">Sign Up</a>
+                    </li>
+                  <% } else { %>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Signed In As <%= currentUser.username %></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                  <% } %>
+                </ul>
+              </div>
+            </nav>
+        
+    <div class="container">
+        <% if (error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if (success && success.length > 0){ %>
+         <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+        <% } %>
+    </div>

@@ -1,0 +1,16 @@
+
+html,
+body {
+  height: 100%
+}
+
+body {
+   background-image: url("/imgs/background.jpg");
+   background-size: cover;
+   background-position: 50% 50%;
+}
+
+#landing-header {
+    color: white;
+    font-size: 2rem ;
+}

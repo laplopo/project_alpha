@@ -1,0 +1,56 @@
+html,
+body {
+  height: 100%
+}
+
+body {
+    padding-top: 65px;
+    background-color: #dae0e6;
+}
+
+#buttoncontainer {
+    border-top: 1px solid rgba(0,0,0,.125);;
+}
+
+.postbutton{
+    border-color: white;
+}
+
+.stack-image {
+    height: 150px;
+    width: 150px;
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+}
+
+.avatar-div {
+    width: 50px;
+    align-self: stretch;
+
+}
+
+.delete-form {
+    display: inline;
+}
+
+.jumbotron {
+    margin-top: 40px;
+    padding-bottom: 10px;
+}
+
+.postText {
+    white-space: pre-wrap;
+    margin-bottom: 30px;
+}
+
+.commentText {
+    white-space: pre-wrap;
+    padding: 20px;
+}
+.comment {
+    padding-top: 0;
+}
+

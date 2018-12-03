@@ -1,0 +1,17 @@
+<% include ./partials/header %>
+
+
+<div class="container d-flex h-100">
+    <div class="row w-100 h-100 justify-content-center align-items-center text-center">
+        <div class="col-12 ">
+            <h1>Sign Up!</h1>
+            <form action="/register" method="POST">
+                <input type="text" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="password">
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>
