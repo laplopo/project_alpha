@@ -25,12 +25,13 @@ var commentRoutes       = require("./routes/comments"),
     postRoutes          = require("./routes/posts"),
     indexRoutes         = require("./routes/index");
 
+console.log(process.env.DATABASEURL);
 
 setTimeout(function() {}, 10);
-mongoose.connect("mongodb://localhost:27017/project_alpha", { useNewUrlParser: true });
 
-//mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
-//mongoose.connect("mongodb://atis:kutya1@ds139883.mlab.com:39883/yelpcamp", { useNewUrlParser: true });
+
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
+
 
 // https://www.npmjs.com/package/body-parser
 app.use(bodyParser.urlencoded({extended: true}));
