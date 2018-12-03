@@ -15,7 +15,7 @@ router.get("/posts", function(req, res){
                 if (err){
                     console.log(err);
                 } else {
-                    res.render("posts/index", {posts:allPosts, users: users, dateformatter: dateformatter});
+                    res.render("posts/index", {posts:allPosts, users: users});
                 }
             });
             
