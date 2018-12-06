@@ -21,7 +21,7 @@ var commentRoutes       = require("./routes/comments"),
 
 
 setTimeout(function() {}, 10);
-console.log(process.env.DATABASEURL)
+
 //mongoose.connect("mongodb://localhost/project_alpha", { useNewUrlParser: true } );
 mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
 
@@ -35,7 +35,6 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 // https://www.npmjs.com/package/connect-flash
 app.use(flash());
-// seedDB();
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
