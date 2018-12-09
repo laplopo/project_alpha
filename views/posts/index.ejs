@@ -5,31 +5,31 @@
 
     <div class="container">
         <div class="jumbotron">
-            <h1 class="display-4">Welcome To The Show!</h1>
+            <h1 class="display-4 text-center text-md-left">Welcome To The Show!</h1>
             <p class="lead b-4">Join the conversation! You can create a post, write comment on a post, and you can modify or delete the content you created. The posts are orered by latest activity. Thats all, good luck!</p>
             <hr class="my-4">
     
             <p class="lead">
-                <a class="btm btn-success btn-lg" href="/posts/new"> <i class="fas fa-pen"></i> Add New Post</a>
+                <a class="btm btn-success btn-lg d-block d-md-inline" href="/posts/new"> <i class="fas fa-pen"></i> Add New Post</a>
             </p>
     </div>
  
     <div class="container">
         <% posts.forEach(function(post){ %>
             <div class="d-flex row align-items-center justify-content-center">
-                <div class="card w-75 my-2">
+                <div class="card col-md-9 my-2 p-0">
                     <div class="card-header bg-light">
-                            <em><%= post.author.username %> at <%= dateformatter.nicedate(post.date) %></em> 
+                            <em><%= post.author.username %> at <span class="date"><%= post.date %></span></em> 
         
                             
-                            <span class="float-right text-muted">last activity: <%= dateformatter.nicedate(post.lastUpdate) %></span>
+                            <div class="float-left float-md-right text-muted">last activity: <span class="date"><%= post.lastUpdate %></span></div>
                 
                     </div>
                     <div class="card-body pb-0 ">
                         <div class="d-flex">
                             <div>
                                 <img class="float-left avatar rounded mb-3" src="/imgs/npc.jpg">
-                            </div> 
+                            </div>
                             <div class="postText mx-3"><%- post.content %></div>
                         </div>
                         
@@ -47,7 +47,7 @@
                                     </form>
                                     <% } %>
                                     
-                                    <span class="float-right text-muted"><%= dateformatter.nicedate(comment.date) %></span>  
+                                    <span class="float-right text-muted date"><%= comment.date %></span>  
                                 </div>
                                 
                                 <div class="d-flex">
@@ -64,26 +64,30 @@
                     </ul>
                     
                     </div>
-                    <div id="buttoncontainer" class="d-flex justify-content-around">
-
-                            
-                            <a class="btn btn-outline-primary postbutton" href="/posts/<%= post._id %>/comments/new"><i class="far fa-comments"> Write Comment</i></a>
-
-                        <% if (currentUser && post.author.id.equals(currentUser._id)) { %>
-
-                                <a class="btn btn-outline-primary postbutton" href="/posts/<%= post._id %>/edit"><i class="far fa-edit"></i> Edit Post</a>
-                                <form class="delete-form" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-                                    <button class="btn btn-outline-primary postbutton" onclick="return confirm('Are you sure you want to delete this post?');"> <i class="far fa-trash-alt"></i> Delete Post</button>
-                                </form>
-                        <% } %>
                     
-                        
+                    <div id="buttoncontainer" class="d-flex container">
+                            <div class="flex-column flex-md-row d-flex justify-content-around flex-fill">
+                                
+                                        
+                                    <a class="btn btn-outline-primary postbutton" href="/posts/<%= post._id %>/comments/new"><i class="far fa-comments"> Write Comment</i></a>
+                                
+                                    <% if (currentUser && post.author.id.equals(currentUser._id)) { %>
+                                    
+                                    <a class="btn btn-outline-primary postbutton" href="/posts/<%= post._id %>/edit"><i class="far fa-edit"></i> Edit Post</a>
+                                    
+                                    
+                                    <form class="delete-form" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                                        <button class="btn btn-outline-primary postbutton btn-block" onclick="return confirm('Are you sure you want to delete this post?');"> <i class="far fa-trash-alt"></i> Delete Post</button>
+                                    </form>
+                                    
+                                 <% } %>
+                            </div>
+
                     </div>
                     </div>
                 </div>
                 <% }); %>
             </div>
-        
     </div>
 </div>
 
